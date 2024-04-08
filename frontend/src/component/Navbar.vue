@@ -1,23 +1,23 @@
 <template>
   <nav class="navbar navbar-expand-md custom-nav">
     <div class="container">
-      <a class="navbar-brand" href="#">Bostorek</a>
+      <RouterLink class="navbar-brand" v-bind:to="{ name: 'home' }">{{ brandName }}</RouterLink>
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <RouterLink class="nav-link" v-bind:to="{ name: 'home' }">Home</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Books</a>
+          <RouterLink class="nav-link" v-bind:to="{ name: 'books' }">Books</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
+          <RouterLink class="nav-link" v-bind:to="{ name: 'contact' }">Contact Us</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <RouterLink class="nav-link" v-bind:to="{ name: 'login' }">Login</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <RouterLink class="nav-link" v-bind:to="{ name: 'register' }">Register</RouterLink>
         </li>
       </ul>
     </div>
@@ -27,6 +27,11 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      brandName: "Bostorek",
+    };
+  },
 };
 </script>
 
@@ -43,10 +48,23 @@ export default {
   padding: 0;
   margin: 0;
 }
+
+.navbar-brand:hover {
+  color: #44b89d;
+}
+
 .nav-link {
   color: #fff;
   font-size: 16px;
-  padding: 10px 25px;
+  padding: 10px 15px !important;
   text-align: center;
+}
+
+.nav-link:hover {
+  color: #44b89d;
+}
+
+.active-link {
+  color: #44b89d !important;
 }
 </style>
