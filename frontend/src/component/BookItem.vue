@@ -9,7 +9,7 @@
       </div>
       <h5 class="card-title mt-3 fw-semibold">{{ book.name }}</h5>
       <p class="card-text">
-        {{ book.description }}
+        {{ truncatedDescription }}
       </p>
       <div class="d-flex justify-content-between align-item-center">
         <a href="#" class-link>Read More</a>
@@ -45,6 +45,12 @@ export default {
       } else {
         return "bg-danger";
       }
+    },
+    truncatedDescription() {
+      if (this.book.description.length > 50) {
+        return this.book.description.slice(0, 50) + "...";
+      }
+      return this.book.description;
     },
   },
 };
